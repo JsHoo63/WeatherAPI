@@ -30,3 +30,10 @@
     transform: rotate(360deg);
   }
 }
+
+.collapse-content .fa.fa-heart:hover {
+  color: #f44336 !important;
+}
+.collapse-content .fa.fa-share-alt:hover {
+  color: #0d47a1 !important;
+}

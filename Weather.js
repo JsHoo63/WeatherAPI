@@ -19,9 +19,8 @@ const schema = mongoose.Schema({
   mainweather: { type: String },
   decription: { type: String },
   temp: { type: String },
-  humidity: { type: String },
-  cloud: { type: String }
-
+  name: { type: String },
+  icon: {type: String},
 });
 
 const Weather = mongoose.model('Weather', schema, 'weatherCollection');

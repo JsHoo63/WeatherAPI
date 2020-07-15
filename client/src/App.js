@@ -142,8 +142,9 @@ class App extends Component {
                   <th>Delete</th>
                   <th>Location</th>
                   <th>Country</th>
+                  <th>Temperature</th>
                   <th>Weather</th>
-                  <th>Detail</th>
+                  <th>Icon</th>
                 </tr>
               </thead>
               <tbody>
@@ -159,11 +160,12 @@ class App extends Component {
                           Delete
                         </button>
                       </td>
-                      <td>{weather.location}</td>
+                      <td>{weather.name}</td>
                       <td>{weather.country}</td>
+                      <td>{weather.temp}°C</td>
                       <td>{weather.mainweather}</td>
                       <td>
-                        <img src={weather.icon} />
+                        <img src={'http://openweathermap.org/img/w/'+ weather.icon +'.png'}/>
                       </td>
                     </tr>
                   );
@@ -173,6 +175,7 @@ class App extends Component {
           </Row>
         </Container>
       </div>
+      
     );
   }
 }

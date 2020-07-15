@@ -8,7 +8,7 @@ const apikey = 'e79e86ac6e231089e7ee3cf9c4d42e03';
 //localhost:5000/getmovie?title=MovieTitle
 app.get('/getweather', (req, res) => {
   const location = req.query.title;
-  const querystr = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apikey}`;
+  const querystr = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apikey}&units=metric`;
 
   axios
     .get(querystr)
@@ -19,8 +19,8 @@ app.get('/getweather', (req, res) => {
         mainweather: response.data.weather[0].main,
         decription: response.data.weather.description,
         temp: response.data.main.temp,
-        humidity: response.data.main.humidity,
-        cloud: response.data.clouds.all
+        name: response.data.name,
+        icon: response.data.weather[0].icon
       });
       if (!weather.location) {
         res.status(200).json('Not found');
@@ -54,7 +54,7 @@ app.get('/getAllWeathers', (req, res) => {
 
 //localhost:5000/deletemovie?title=MovieTitle
 app.get('/deleteweather', (req, res) => {
-  Weather.deleteMany({ location: req.query.location })
+  Weather.deleteOne({ location: req.query.location })
     .then(response => {
       res.status(200).json(response);
     })
